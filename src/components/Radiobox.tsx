@@ -1,4 +1,4 @@
-export function Checkbox({ name, title, type, setFullTime }: any) {
+export function Radiobox({ name, title, type, setCityOption }: any) {
   return (
     <div className="checkbox-unit">
       <input
@@ -6,8 +6,11 @@ export function Checkbox({ name, title, type, setFullTime }: any) {
         className="checkbox"
         id={name}
         name={name}
+        value={title}
         onChange={(e) => {
-          setFullTime(e.target.checked);
+          if (e.target.checked) {
+            setCityOption(e.target.value);
+          }
         }}
       />
       <label htmlFor={name}>{title}</label>

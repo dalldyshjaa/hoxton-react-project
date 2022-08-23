@@ -3,18 +3,13 @@ import logo from "./logo.svg";
 import "./App.css";
 import { Link, Route, Routes } from "react-router-dom";
 import { Home } from "./components/Home";
+import { JobPage } from "./components/JobPage";
 
 function App() {
-  const [jobs, setJobs] = useState([]);
-  useEffect(function () {
-    fetch("https://www.arbeitnow.com/api/job-board-api")
-      .then((resp) => resp.json())
-      .then((a) => console.log(a.data[0]));
-  }, []);
-
   return (
     <Routes>
       <Route index element={<Home />} />
+      <Route path="/job/:created_at" element={<JobPage />} />
     </Routes>
   );
 }

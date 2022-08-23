@@ -1,0 +1,110 @@
+.job-desc-container {
+  width: 100%;
+  display: flex;
+  gap: 77px;
+}
+.job-page-container {
+}
+.back {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-family: Poppins;
+  color: #1e86ff;
+  font-size: 14px;
+  line-height: 21px;
+  margin-bottom: 36px;
+}
+.how-to-apply {
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 21px;
+  color: #b9bdcf;
+  margin-bottom: 16px;
+}
+.apply-email-info {
+  max-width: 231px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  color: #334680;
+}
+.apply-email-info-email {
+  color: #1e86ff;
+  cursor: pointer;
+}
+.job-title-container {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  margin-bottom: 59px;
+}
+.job-title-text {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  color: #334680;
+}
+.company-profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 42px;
+  width: 42px;
+  border-radius: 4px;
+  background-color: #f2f2f2;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 8px;
+  line-height: 14px;
+  color: #bdbdbd;
+}
+.company-profile-location {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+.company-location-icon {
+  display: flex;
+  align-items: center;
+  gap: 7.5px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  color: #b9bdcf;
+}
+.company-name-small {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+  color: #334680;
+}
+.company-name-location-small {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.job-description-text {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  /* or 24px */
+
+  color: #334680;
+}
+.logo-container {
+  /* position: absolute; */
+}

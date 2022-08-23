@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { World } from "./Icons";
 
 export function Job({ job }: any) {
@@ -5,7 +6,7 @@ export function Job({ job }: any) {
 
   console.log(job.image === undefined);
   return (
-    <div className="job-container">
+    <Link to={`job/${job.created_at}`} className="job-container">
       {job.image === undefined ? (
         <div className="company-image-container">not found</div>
       ) : (
@@ -17,7 +18,10 @@ export function Job({ job }: any) {
         <p className="company-name">{job.company_name}</p>
         <p className="company-title">{job.title}</p>
         <div className="company-tags">
-          <div className="company-tag">Full time</div>
+          <div className="more-company-tags">
+            <div className="company-tag">Full time</div>
+            {job.remote ? <div className="company-tag">Remote</div> : null}
+          </div>
           <div className="more-company-tags">
             <div className="more-company-tag">
               <World />
@@ -26,6 +30,6 @@ export function Job({ job }: any) {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

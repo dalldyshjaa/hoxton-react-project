@@ -1,8 +1,19 @@
+import { useState, useEffect } from "react";
 import { Job } from "./Job";
 import { MainAside } from "./MainAside";
 import "./styles/main.css";
 
-export function Main() {
+export function Main({ search }: any) {
+  const [jobs, setJobs] = useState([]);
+  const [fullTime, setFullTime] = useState(false);
+  const [citySearch, setCitySearch] = useState("");
+  const [cityOption, setCityOption] = useState("");
+  useEffect(function () {
+    fetch("https://www.arbeitnow.com/api/job-board-api")
+      .then((resp) => resp.json())
+      .then((a) => console.log(a.data[0]));
+  }, []);
+
   let job = {
     company_name: "Digital Spine",
     created_at: 1661207105,
@@ -16,8 +27,15 @@ export function Main() {
   };
   return (
     <main>
-      <MainAside />
+      <MainAside
+        setFullTime={setFullTime}
+        setCityOption={setCityOption}
+        setCitySearch={setCitySearch}
+      />
       <section className="section">
+        <Job job={job} />
+        <Job job={job} />
+        <Job job={job} />
         <Job job={job} />
       </section>
     </main>

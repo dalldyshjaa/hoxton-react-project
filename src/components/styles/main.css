@@ -229,7 +229,7 @@ input[type="checkbox"]:checked:before {
 }
 .more-company-tags {
   display: flex;
-  gap: 28px;
+  gap: 10px;
 }
 /* .company-image {
   height: 90px widh;
