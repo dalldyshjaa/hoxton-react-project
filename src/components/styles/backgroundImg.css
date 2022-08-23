@@ -1,0 +1,11 @@
+.background-img-container {
+  width: 100%;
+  height: 138px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("./assets/backgroundImg.png");
+  border-radius: 8px;
+  object-fit: cover;
+  margin-bottom: 44px;
+}
