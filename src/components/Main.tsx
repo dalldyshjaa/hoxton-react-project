@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Job } from "./Job";
 import { MainAside } from "./MainAside";
+import { Pages } from "./Pages";
 import "./styles/main.css";
 
 export function Main({ search }: any) {
@@ -8,23 +9,20 @@ export function Main({ search }: any) {
   const [fullTime, setFullTime] = useState(false);
   const [citySearch, setCitySearch] = useState("");
   const [cityOption, setCityOption] = useState("");
-  useEffect(function () {
-    fetch("https://www.arbeitnow.com/api/job-board-api")
-      .then((resp) => resp.json())
-      .then((a) => console.log(a.data[0]));
-  }, []);
+  const [page, setPage] = useState(20);
+  const [pagesNumber, setPagesNumber] = useState(0);
+  useEffect(
+    function () {
+      fetch(`http://localhost:3006/jobs?_page=${page}&_limit=5`)
+        .then((resp) => resp.json())
+        .then((a) => setJobs(a));
+    },
+    [page]
+  );
+  fetch(`http://localhost:3006/jobs`)
+    .then((resp) => resp.json())
+    .then((a) => setPagesNumber(a.length));
 
-  let job = {
-    company_name: "Digital Spine",
-    created_at: 1661207105,
-    job_types: [],
-    location: "Berlin",
-    remote: false,
-    slug: "remote-full-stack-technical-lead-web-platform-digital-spine-berlin-germany-282713",
-    tags: ["Tech", "Hybrid Remote"],
-    title: "Full Stack Technical Lead Web Platform (m/f/d)",
-    url: "https://www.arbeitnow.com/view/remote-full-stack-technical-lead-web-platform-digital-spine-berlin-germany-282713",
-  };
   return (
     <main>
       <MainAside
@@ -32,12 +30,14 @@ export function Main({ search }: any) {
         setCityOption={setCityOption}
         setCitySearch={setCitySearch}
       />
-      <section className="section">
-        <Job job={job} />
-        <Job job={job} />
-        <Job job={job} />
-        <Job job={job} />
-      </section>
+      <div>
+        <section className="section">
+          {jobs.map((job: any) => (
+            <Job job={job} key={job.slug} />
+          ))}
+        </section>
+        <Pages page={page} pagesNumber={pagesNumber} setPage={setPage} />
+      </div>
     </main>
   );
 }

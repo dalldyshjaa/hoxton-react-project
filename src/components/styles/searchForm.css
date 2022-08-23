@@ -38,9 +38,9 @@
   border: none;
   outline: none;
   line-height: 14px;
-  color: #b9bdcf;
+  color: black;
   font-family: "Roboto";
-  font-size: 12px;
+  font-size: 16px;
 }
 .search-form-container button {
   width: 146px;

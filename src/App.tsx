@@ -9,7 +9,7 @@ function App() {
   return (
     <Routes>
       <Route index element={<Home />} />
-      <Route path="/job/:created_at" element={<JobPage />} />
+      <Route path="/job/:slug" element={<JobPage />} />
     </Routes>
   );
 }

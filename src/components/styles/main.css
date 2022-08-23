@@ -125,9 +125,9 @@ input[type="checkbox"]:checked:before {
   border: none;
   outline: none;
   line-height: 14px;
-  color: #b9bdcf;
+  color: black;
   font-family: "Roboto";
-  font-size: 12px;
+  font-size: 16px;
 }
 .city-options {
   display: flex;
@@ -139,6 +139,7 @@ input[type="checkbox"]:checked:before {
   display: flex;
   flex-direction: column;
   gap: 32px;
+  margin-bottom: 32px;
 }
 .job-container {
   width: 790px;
@@ -192,6 +193,10 @@ input[type="checkbox"]:checked:before {
   line-height: 21px;
   color: #334680;
   margin-top: 8px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 675px;
+  overflow: hidden;
 }
 .company-tags {
   margin-top: 12px;

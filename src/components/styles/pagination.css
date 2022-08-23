@@ -1,0 +1,16 @@
+.pagination-container {
+  display: flex;
+  align-items: center;
+  color: #334680;
+  font-family: Poppins;
+  gap: 30px;
+  justify-content: end;
+}
+.pagination-arrows {
+  gap: 30px;
+  display: flex;
+  align-items: center;
+}
+.change-page-arrow {
+  cursor: pointer;
+}

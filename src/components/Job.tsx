@@ -2,11 +2,8 @@ import { Link } from "react-router-dom";
 import { World } from "./Icons";
 
 export function Job({ job }: any) {
-  console.log(job);
-
-  console.log(job.image === undefined);
   return (
-    <Link to={`job/${job.created_at}`} className="job-container">
+    <Link to={`job/${job.slug}`} className="job-container">
       {job.image === undefined ? (
         <div className="company-image-container">not found</div>
       ) : (
