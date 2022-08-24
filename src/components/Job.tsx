@@ -16,8 +16,16 @@ export function Job({ job }: any) {
         <p className="company-title">{job.title}</p>
         <div className="company-tags">
           <div className="more-company-tags">
-            <div className="company-tag">Full time</div>
-            {job.remote ? <div className="company-tag">Remote</div> : null}
+            {job.full_time ? (
+              <div className="company-tag">Full time</div>
+            ) : (
+              <div className="company-tag">Not full time</div>
+            )}
+            {job.remote ? (
+              <div className="company-tag">Remote</div>
+            ) : (
+              <div className="company-tag">Not remote</div>
+            )}
           </div>
           <div className="more-company-tags">
             <div className="more-company-tag">

@@ -4,18 +4,17 @@ import { MainAside } from "./MainAside";
 import { Pages } from "./Pages";
 import "./styles/main.css";
 import { JobType } from "../types";
+import { CurrentPage } from "./CurrentPage";
 
 export function Main({ search }: any) {
   const [allJobs, setAllJobs] = useState<JobType[]>([]);
-  const [jobs, setJobs] = useState<JobType[]>([]);
+  const [jobsToShow, setJobsToShow] = useState<JobType[]>([]);
   const [fullTime, setFullTime] = useState(false);
   const [remote, setRemote] = useState(false);
   const [citySearch, setCitySearch] = useState("");
   const [cityOption, setCityOption] = useState("");
-  const [page, setPage] = useState(20);
+  const [page, setPage] = useState(1);
   const [pagesNumber, setPagesNumber] = useState(0);
-
-  let jobsCopy: any = [];
 
   function filterJobsToShow(job: JobType) {
     if (search) {
@@ -23,47 +22,49 @@ export function Main({ search }: any) {
         !job.company_name.toLowerCase().includes(search.toLowerCase()) &&
         !job.title.toLowerCase().includes(search.toLowerCase())
       )
-        return;
+        return false;
     }
     if (remote) {
-      if (!job.remote) return;
+      if (!job.remote) return false;
     }
     if (citySearch) {
       if (
         !job.location.toLowerCase().includes(citySearch.toLowerCase()) &&
         !job.country.toLowerCase().includes(citySearch.toLowerCase())
       )
-        return;
+        return false;
     }
     if (cityOption) {
       if (!job.location.toLowerCase().includes(cityOption.toLowerCase()))
-        return;
+        return false;
     }
     if (fullTime) {
-      if (!job.full_time) return;
+      if (!job.full_time) return false;
     }
-    jobsCopy.push(job);
+    return true;
   }
-  if (allJobs.length !== 0) {
-    for (let job of allJobs) {
-      filterJobsToShow(job);
-    }
-    console.log(jobsCopy);
-  }
-
+  // if (allJobs.length !== 0) {
+  //   let jobsCopy: any = [];
+  //   for (let job of allJobs) {
+  //     if (filterJobsToShow(job)) jobsCopy.push(job);
+  //   }
+  //   // setJobsToShow(jobsCopy);
+  // }
   useEffect(
     function () {
-      fetch(`http://localhost:3006/jobs`)
-        .then((resp) => resp.json())
-        .then((a) => setAllJobs(a));
+      let jobsCopy: any = [];
+      for (let job of allJobs) {
+        if (filterJobsToShow(job)) jobsCopy.push(job);
+      }
+      setJobsToShow(jobsCopy);
     },
-    //   function () {
-    //     fetch(`http://localhost:3006/jobs?&_page=${page}&_limit=5`)
-    //       .then((resp) => resp.json())
-    //       .then((a) => setJobs(a));
-    //   },
-    []
+    [allJobs, fullTime, search, remote, cityOption, citySearch]
   );
+  useEffect(function () {
+    fetch(`http://localhost:3006/jobs`)
+      .then((resp) => resp.json())
+      .then((a) => setAllJobs(a));
+  }, []);
 
   return (
     <main>
@@ -74,12 +75,8 @@ export function Main({ search }: any) {
         setRemote={setRemote}
       />
       <div>
-        <section className="section">
-          {jobs.map((job: JobType) => (
-            <Job job={job} key={job.slug} />
-          ))}
-        </section>
-        <Pages page={page} pagesNumber={allJobs.length} setPage={setPage} />
+        <CurrentPage page={page} jobsToShow={jobsToShow} />
+        <Pages page={page} pagesNumber={jobsToShow.length} setPage={setPage} />
       </div>
     </main>
   );

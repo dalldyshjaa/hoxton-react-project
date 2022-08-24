@@ -6,7 +6,8 @@ export function Pages({ pagesNumber, page, setPage }: any) {
   return (
     <div className="pagination-container">
       <span>
-        {(page - 1) * 5 + 1} - {page * 5} of {pagesNumber}
+        {(page - 1) * 5 + 1} - {page * 5 > pagesNumber ? pagesNumber : page * 5}{" "}
+        of {pagesNumber}
       </span>
       <span className="pagination-arrows">
         <div
@@ -22,7 +23,7 @@ export function Pages({ pagesNumber, page, setPage }: any) {
         <div
           className="change-page-arrow"
           onClick={() => {
-            if (page !== pagesNumber / 5) {
+            if (page !== Math.ceil(pagesNumber / 5)) {
               setPage(page + 1);
             }
           }}
