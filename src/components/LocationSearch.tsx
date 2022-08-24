@@ -1,6 +1,16 @@
+import { useState, useEffect } from "react";
 import { World } from "./Icons";
 
 export function LocationSearch({ setCitySearch }: any) {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  useEffect(() => {
+    const delayDebounceFn = setTimeout(() => {
+      setCitySearch(searchTerm);
+    }, 1500);
+
+    return () => clearTimeout(delayDebounceFn);
+  }, [searchTerm]);
   return (
     <form
       action=""
@@ -10,14 +20,17 @@ export function LocationSearch({ setCitySearch }: any) {
         // @ts-ignore
         setCitySearch(e.target.text.value);
         // @ts-ignore
-        e.target.reset();
       }}
     >
       <World />
       <input
         type="text"
-        placeholder="City, state, zip code or country"
+        placeholder="City, country"
         name="text"
+        onChange={
+          // @ts-ignore
+          (e) => setSearchTerm(e.target.value)
+        }
       />
     </form>
   );

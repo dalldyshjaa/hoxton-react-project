@@ -1,8 +1,18 @@
 import "../components/styles/searchForm.css";
-import { BiShoppingBag } from "react-icons/Bi";
 import { Bag } from "../components/Icons";
+import { useEffect, useState } from "react";
 
 export function SearchForm({ setSearch }: any) {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  useEffect(() => {
+    const delayDebounceFn = setTimeout(() => {
+      setSearch(searchTerm);
+    }, 1500);
+
+    return () => clearTimeout(delayDebounceFn);
+  }, [searchTerm]);
+
   return (
     <div className="search-form-container">
       <form
@@ -11,15 +21,18 @@ export function SearchForm({ setSearch }: any) {
           // @ts-ignore
           setSearch(e.target.text.value);
           // @ts-ignore
-          e.target.reset();
         }}
       >
         <div className="search-left-side">
           <Bag />
           <input
             type="text"
-            placeholder="Title, companies, expertise or benefits"
+            placeholder="Title, companies"
             name="text"
+            onChange={
+              // @ts-ignore
+              (e) => setSearchTerm(e.target.value)
+            }
           />
         </div>
         <button>Search</button>

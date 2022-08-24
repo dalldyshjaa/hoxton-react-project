@@ -21,7 +21,7 @@ export function JobPage() {
     <div className="job-page-container">
       <Logo />
       <div className="job-desc-container">
-        <div>
+        <div className="job-desc-left-side">
           <div
             className="back"
             onClick={() => {

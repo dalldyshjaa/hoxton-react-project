@@ -1,19 +1,24 @@
+import { useState } from "react";
+
 export function Radiobox({ name, title, type, setCityOption }: any) {
+  const [prevChecked, setChecked] = useState(false);
   return (
     <div className="checkbox-unit">
       <input
         type={type}
         className="checkbox"
-        id={name}
+        id={title}
         name={name}
         value={title}
-        onChange={(e) => {
+        onClick={(e) => {
+          // @ts-ignore
           if (e.target.checked) {
+            // @ts-ignore
             setCityOption(e.target.value);
           }
         }}
       />
-      <label htmlFor={name}>{title}</label>
+      <label htmlFor={title}>{title}</label>
     </div>
   );
 }

@@ -1,15 +1,27 @@
 import { Checkbox } from "./Checkbox";
 import { LocationUnit } from "./LocationUnit";
 
-export function MainAside({ setFullTime, setCityOption, setCitySearch }: any) {
+export function MainAside({
+  setFullTime,
+  setCityOption,
+  setCitySearch,
+  setRemote,
+}: any) {
   return (
     <aside>
       <Checkbox
         name={"full-time"}
         title={"Full time"}
         type="checkbox"
-        setFullTime={setFullTime}
+        handleChange={setFullTime}
       />
+      <Checkbox
+        name={"remote"}
+        title={"Remote"}
+        type="checkbox"
+        handleChange={setRemote}
+      />
+
       <LocationUnit
         setCityOption={setCityOption}
         setCitySearch={setCitySearch}

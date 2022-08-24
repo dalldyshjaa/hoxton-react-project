@@ -70,6 +70,7 @@ input[type="checkbox"]:checked:before {
   gap: 12px;
   align-items: center;
   margin-left: 20px;
+  margin-bottom: 7px;
 }
 .checkbox-unit label {
   font-family: Poppins;
