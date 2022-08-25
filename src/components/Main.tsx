@@ -14,7 +14,6 @@ export function Main({ search }: any) {
   const [citySearch, setCitySearch] = useState("");
   const [cityOption, setCityOption] = useState("");
   const [page, setPage] = useState(1);
-  const [pagesNumber, setPagesNumber] = useState(0);
 
   function filterJobsToShow(job: JobType) {
     if (search) {
@@ -43,13 +42,6 @@ export function Main({ search }: any) {
     }
     return true;
   }
-  // if (allJobs.length !== 0) {
-  //   let jobsCopy: any = [];
-  //   for (let job of allJobs) {
-  //     if (filterJobsToShow(job)) jobsCopy.push(job);
-  //   }
-  //   // setJobsToShow(jobsCopy);
-  // }
   useEffect(
     function () {
       let jobsCopy: any = [];
@@ -57,6 +49,7 @@ export function Main({ search }: any) {
         if (filterJobsToShow(job)) jobsCopy.push(job);
       }
       setJobsToShow(jobsCopy);
+      setPage(1);
     },
     [allJobs, fullTime, search, remote, cityOption, citySearch]
   );

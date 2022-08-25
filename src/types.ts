@@ -11,4 +11,5 @@ export type JobType = {
   created_at: number;
   full_time: boolean;
   country: string;
+  company_image?: string;
 };

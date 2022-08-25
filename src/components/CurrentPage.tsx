@@ -16,8 +16,8 @@ export function CurrentPage({ page, jobsToShow }: any) {
   );
   return (
     <section className="section">
-      {showJobs.map((job: any) => (
-        <Job job={job} key={job.slug} />
+      {showJobs.map((job: any, index: number) => (
+        <Job job={job} key={job.slug} index={index} />
       ))}
     </section>
   );

@@ -12,25 +12,67 @@ export function CityOptions({ setCityOption }: any) {
     >
       <Radiobox
         type="radio"
-        title="London"
-        name="city"
-        setCityOption={setCityOption}
-      />
-      <Radiobox
-        type="radio"
-        title="Amsterdam"
-        name="city"
-        setCityOption={setCityOption}
-      />
-      <Radiobox
-        type="radio"
-        title="New York"
-        name="city"
-        setCityOption={setCityOption}
-      />
-      <Radiobox
-        type="radio"
         title="Berlin"
+        name="city"
+        setCityOption={setCityOption}
+      />
+      <Radiobox
+        type="radio"
+        title="Stuttgart"
+        name="city"
+        setCityOption={setCityOption}
+      />
+      <Radiobox
+        type="radio"
+        title="Tübingen"
+        name="city"
+        setCityOption={setCityOption}
+      />
+      <Radiobox
+        type="radio"
+        title="Ulm"
+        name="city"
+        setCityOption={setCityOption}
+      />
+      <Radiobox
+        type="radio"
+        title="Nuremberg"
+        name="city"
+        setCityOption={setCityOption}
+      />
+      <Radiobox
+        type="radio"
+        title="Ebersberg"
+        name="city"
+        setCityOption={setCityOption}
+      />
+      <Radiobox
+        type="radio"
+        title="Markdorf"
+        name="city"
+        setCityOption={setCityOption}
+      />
+      <Radiobox
+        type="radio"
+        title="Hamburg"
+        name="city"
+        setCityOption={setCityOption}
+      />
+      <Radiobox
+        type="radio"
+        title="Munich"
+        name="city"
+        setCityOption={setCityOption}
+      />
+      <Radiobox
+        type="radio"
+        title="Frankfurt"
+        name="city"
+        setCityOption={setCityOption}
+      />
+      <Radiobox
+        type="radio"
+        title="All"
         name="city"
         setCityOption={setCityOption}
       />

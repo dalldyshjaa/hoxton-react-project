@@ -140,9 +140,13 @@ input[type="checkbox"]:checked:before {
   display: flex;
   flex-direction: column;
   gap: 32px;
-  margin-bottom: 32px;
+  margin-bottom: 20px;
+  min-height: 698px;
+  min-width: 790px;
 }
 .job-container {
+  /* animation: example 200ms; */
+  /* animation-duration: 1s; */
   width: 790px;
   height: 114px;
   padding: 12px;
@@ -151,6 +155,34 @@ input[type="checkbox"]:checked:before {
   border-radius: 4px;
   display: flex;
   gap: 16px;
+}
+.job-container-0 {
+  animation: example 200ms;
+  animation-duration: 0.2s;
+}
+.job-container-1 {
+  animation: example 200ms;
+  animation-duration: 0.24s;
+}
+.job-container-2 {
+  animation: example 200ms;
+  animation-duration: 0.28s;
+}
+.job-container-3 {
+  animation: example 200ms;
+  animation-duration: 0.32s;
+}
+.job-container-4 {
+  animation: example 200ms;
+  animation-duration: 0.36s;
+}
+@keyframes example {
+  from {
+    transform: translate(400px);
+  }
+  to {
+    transform: translate(0px);
+  }
 }
 .company-image-container {
   height: 90px;
@@ -196,7 +228,7 @@ input[type="checkbox"]:checked:before {
   margin-top: 8px;
   text-overflow: ellipsis;
   white-space: nowrap;
-  width: 675px;
+  width: 100%;
   overflow: hidden;
 }
 .company-tags {
@@ -219,6 +251,16 @@ input[type="checkbox"]:checked:before {
   font-size: 12px;
   line-height: 14px;
   color: #334680;
+  min-width: 64.63px;
+}
+.company-tag-green {
+  border: 1.5px solid #14ae5c;
+  color: #14ae5c;
+}
+.company-tag-red {
+  border: 1.5px solid #f24822;
+  color: #f24822;
+  text-decoration: line-through;
 }
 .more-company-tag {
   display: flex;

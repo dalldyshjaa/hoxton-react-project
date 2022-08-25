@@ -13,17 +13,21 @@ export function JobDesc({ job }: any) {
       <div className="job-title-container">
         <span className="job-title-text">{job.title}</span>
         <div className="more-company-tags">
-          <div className="company-tag">Full time</div>
-          {job.remote ? <div className="company-tag">Remote</div> : null}
+          {job.full_time ? (
+            <div className="company-tag company-tag-green">Full time</div>
+          ) : null}
+          {job.remote ? (
+            <div className="company-tag company-tag-green">Remote</div>
+          ) : null}
         </div>
       </div>
       <div className="company-profile-location">
         <div className="company-profile">
-          {job.image === undefined ? (
+          {job.company_image === undefined ? (
             "not found"
           ) : (
-            <div className="company-image-container">
-              <img src={job.image} className="company-image" />
+            <div className="company-profile">
+              <img src={job.company_image} className="company-image" />
             </div>
           )}
         </div>

@@ -14,7 +14,12 @@ export function Radiobox({ name, title, type, setCityOption }: any) {
           // @ts-ignore
           if (e.target.checked) {
             // @ts-ignore
-            setCityOption(e.target.value);
+            if (e.target.value === "All") {
+              setCityOption("");
+            } else {
+              // @ts-ignore
+              setCityOption(e.target.value);
+            }
           }
         }}
       />
