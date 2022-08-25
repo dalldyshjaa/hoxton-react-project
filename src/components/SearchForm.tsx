@@ -8,7 +8,7 @@ export function SearchForm({ setSearch }: any) {
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
       setSearch(searchTerm);
-    }, 1000);
+    }, 1500);
 
     return () => clearTimeout(delayDebounceFn);
   }, [searchTerm]);

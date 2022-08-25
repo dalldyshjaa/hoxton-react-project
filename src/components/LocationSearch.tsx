@@ -7,7 +7,7 @@ export function LocationSearch({ setCitySearch }: any) {
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
       setCitySearch(searchTerm);
-    }, 1500);
+    }, 500);
 
     return () => clearTimeout(delayDebounceFn);
   }, [searchTerm]);
